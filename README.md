@@ -13,6 +13,7 @@ trên PC, máy bay được di chuyển bằng các phím mũi tên, và  các p
 
 ## Plane
 Được xây dựng trên interface IPlane
+
 ![Imgur-Upload](https://i.imgur.com/h082Q7q.png)
 
 IPlane được kế thừa bởi class MyPlane và Enemy
