@@ -12,6 +12,9 @@ TagManager:
   - PRed
   - PBlue
   - PYellow
+  - E2S
+  - P1
+  - P2
   layers:
   - Default
   - TransparentFX

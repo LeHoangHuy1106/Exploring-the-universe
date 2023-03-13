@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField]
     ObjectPool objectPool;
-    string[] lisEnemy = new string[] { "Rock1", "Rock2", "Rock3", "Aircraft", "Econnaissance" };
+    string[] lisEnemy = new string[] { "Rock1", "Rock2", "Rock3", "Aircraft", "Econnaissance", "Battleship" };
     string[] listStar = new string[] { "StarRed", "StarBlue", "StarYellow" };
 
     int index;

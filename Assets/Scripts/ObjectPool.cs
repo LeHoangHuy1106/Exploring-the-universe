@@ -10,7 +10,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField]
     private GameObject rock1, rock2, rock3;
     [SerializeField]
-    private GameObject aircraft, econnaissance, aircraftBullet;
+    private GameObject aircraft, econnaissance, aircraftBullet, battleship, spaceshipBullet;
     [SerializeField]
     private GameObject boom1, boom2,boom3, yelowBoom;
     [SerializeField]
@@ -40,8 +40,9 @@ public class ObjectPool : MonoBehaviour
         CreateListObject("StarRed", starRed , n);
         CreateListObject("StarBlue", starBlue, n);
         CreateListObject("StarYellow", starYellow, n);
-
-
+        CreateListObject("Battleship", battleship, n);
+        CreateListObject("SpaceshipBullet", spaceshipBullet, n);
+        
     }
 
 

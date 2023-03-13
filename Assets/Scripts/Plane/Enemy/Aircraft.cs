@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Aircraft : Enemy
 {
-
+  
     public float amplitude = 1f; // Biên độ
     public float frequency = 1f; // Tần số
 
