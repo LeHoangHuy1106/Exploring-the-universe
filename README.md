@@ -74,6 +74,7 @@ Bao gồm 3 loại bullet:
 
 ## Items
 ***trạng thái:*** *Chưa  hoàn thành*
+
 Là các vật phẩm giúp cho player tăng cường sức mạnh.
 Người chơi sử dụng năng lượng thu thập được để quy đổi thành vật phẩm
 ![Không có mô tả.](https://scontent.fsgn2-7.fna.fbcdn.net/v/t1.15752-9/335721662_591183022934112_838938544079724028_n.png?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=niLGYBYZSBoAX-leKXc&_nc_ht=scontent.fsgn2-7.fna&oh=03_AdSJ2ghCzPdn7UNZI6IN7XK6shor5dW0xhZ5yuYi2hSOrw&oe=643624AB)
