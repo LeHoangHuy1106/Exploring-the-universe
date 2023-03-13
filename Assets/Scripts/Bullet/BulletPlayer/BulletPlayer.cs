@@ -6,20 +6,11 @@ public class BulletPlayer : MonoBehaviour, IBullet
 {
     [SerializeField]
     protected Rigidbody rb;
-
     [SerializeField]
     private float speed;
-
     [SerializeField]
     ObjectPool objectPool;
-
-    
-
-
-
     Vector3 postion;
-
-
 
     public void collide(Collision  collision, string tag)
     {
@@ -38,17 +29,14 @@ public class BulletPlayer : MonoBehaviour, IBullet
         }
 
     }
-
     public ObjectPool GetObjectPool()
     {
         return this.objectPool;
     }
-
     public float GetSpeed()
     {
         return this.speed;
     }
-
     public void Limit()
     {
         postion = transform.localPosition;
@@ -63,23 +51,19 @@ public class BulletPlayer : MonoBehaviour, IBullet
         }
 
     }
-
     public virtual void Moving()
     {
         rb.velocity = (Vector3.forward * GetSpeed());
 
     }
-
     public virtual void rotation()
     {
 
     }
-
     public void setPosition(Vector3 pos)
     {
 
     }
-
     public void SetSpeed(float speed)
     {
         this.speed = speed;
