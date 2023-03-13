@@ -8,6 +8,10 @@ TagManager:
   - E1
   - E2
   - E3
+  - PHP
+  - PRed
+  - PBlue
+  - PYellow
   layers:
   - Default
   - TransparentFX

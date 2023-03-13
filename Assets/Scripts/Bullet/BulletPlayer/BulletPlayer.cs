@@ -30,9 +30,9 @@ public class BulletPlayer : MonoBehaviour, IBullet
             
             GameObject  boom =   GetObjectPool().GetObject("Boom1");
             boom.transform.localPosition = transform.localPosition;
-            boom.active = true;
-            gameObject.active = false;
-            collision.gameObject.active = false;
+            boom.SetActive(true);
+            gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
 
 
         }
@@ -55,11 +55,11 @@ public class BulletPlayer : MonoBehaviour, IBullet
 
         if (postion.x <= -24f || postion.x > 24f)
         {
-            gameObject.active = false;
+            gameObject.SetActive(false);
         }
         else if (postion.z <= -28f || postion.z >= -2f)
         {
-            gameObject.active = false;
+            gameObject.SetActive(false);
         }
 
     }

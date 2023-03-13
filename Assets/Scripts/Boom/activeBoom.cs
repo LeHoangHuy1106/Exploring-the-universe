@@ -18,7 +18,7 @@ public class activeBoom : MonoBehaviour
     {
 
         yield return new WaitForSeconds(timeToDisable);
-        gameObject.active = false;
+        gameObject.SetActive(false);
 
     }
 

@@ -13,11 +13,13 @@ public class ExplosiveBullet : BulletPlayer
         rb.velocity = new Vector3(x, 0, z);
 
     }
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
+       
         SetSpeed(10);
     }
+    // Start is called before the first frame update
+
 
     // Update is called once per frame
     void Update()
@@ -25,4 +27,16 @@ public class ExplosiveBullet : BulletPlayer
         Moving();
         Limit();
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        collide(collision, "E1");
+    }
+
+    private void OnDisable()
+    {
+        GameObject boomYellow = GetObjectPool().GetObject("YellowBoom");
+        boomYellow.transform.localPosition = transform.localPosition;
+        boomYellow.SetActive(true);
+    }
+
 }

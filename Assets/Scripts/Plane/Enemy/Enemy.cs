@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour, IPlane
     float speed;
 
     int level;
-    public void Conllider()
+    public void Collision (Collision collision)
     {
        
     }
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour, IPlane
 
         if (postion.x <= -24f || postion.x > 24f)
         {
-            gameObject.active = false;
+            gameObject.SetActive(false);
         }
         else if (postion.z <= -28f || postion.z >= 2f)
         {

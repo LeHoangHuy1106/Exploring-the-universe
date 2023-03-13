@@ -8,10 +8,12 @@ public class Aircraft : Enemy
     public float amplitude = 1f; // Biên độ
     public float frequency = 1f; // Tần số
 
-    void Start()
+    private void OnEnable()
     {
         StartCoroutine(startShoot());
+
     }
+
 
     public override void Moving()
     {
@@ -19,6 +21,7 @@ public class Aircraft : Enemy
         float z = GetSpeed();
 
         rb.velocity = new Vector3(x, 0, z);
+       
 
         
     }
@@ -33,17 +36,20 @@ public class Aircraft : Enemy
 
     IEnumerator startShoot()
     {
-        yield return new WaitForSeconds(Random.Range(0.5f, 1f));
+        Debug.Log("co");
+        yield return new WaitForSeconds(Random.Range(0.5f, 3f));
         shoot();
         StartCoroutine(startShoot());
     }
 
     protected override void shoot()
     {
-        base.shoot();
+      
         GameObject bullet = GetObjectPool().GetObject("AircraftBullet");
-        bullet.transform.localPosition = transform.localPosition;
-        bullet.active = true;
+        Vector3 temp = transform.localPosition;
+        temp.z -= 1f;
+        bullet.transform.localPosition = temp ;
+        bullet.SetActive(true);
 
     
     }

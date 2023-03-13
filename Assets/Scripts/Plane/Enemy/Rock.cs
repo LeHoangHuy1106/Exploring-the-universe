@@ -6,14 +6,16 @@ public class Rock : Enemy
 {
     float speedR,x,y,z;
 
+
     private void OnEnable()
     {
         Moving();
+    
     }
     private void Start()
     {
         setLevel(1);
-        SetSpeed(Random.Range(500f, 1000f));
+        SetSpeed(Random.Range(700f, 2000f));
      
         
     }
@@ -26,12 +28,15 @@ public class Rock : Enemy
     }
     void rotate()
     {
-        speedR = Random.Range(1, 2);
+        speedR = Random.Range(3, 4);
         x = Random.Range(0, 180);
         y = Random.Range(0, 180);
         z = Random.Range(0, 180);
 
         transform.Rotate(new Vector3(x, y, z) * Time.deltaTime * speedR);
     }
+
+
+
 
 }

@@ -12,7 +12,9 @@ public class ObjectPool : MonoBehaviour
     [SerializeField]
     private GameObject aircraft, econnaissance, aircraftBullet;
     [SerializeField]
-    private GameObject boom1, boom2,boom3;
+    private GameObject boom1, boom2,boom3, yelowBoom;
+    [SerializeField]
+    private GameObject starRed, starBlue, starYellow, HP;
 
     [SerializeField]
     private int n = 2;
@@ -34,6 +36,10 @@ public class ObjectPool : MonoBehaviour
         CreateListObject("Boom1", boom1, n);
         CreateListObject("Boom2", boom2, n);
         CreateListObject("Boom3", boom3, n);
+        CreateListObject("YellowBoom", yelowBoom, n);
+        CreateListObject("StarRed", starRed , n);
+        CreateListObject("StarBlue", starBlue, n);
+        CreateListObject("StarYellow", starYellow, n);
 
 
     }
@@ -69,8 +75,7 @@ public class ObjectPool : MonoBehaviour
             if (!obj.active)
             {
                dictQueue[name].Enqueue(obj);
-               
-                return obj;
+               return obj;
             }
             dictQueue[name].Enqueue(obj);
         }

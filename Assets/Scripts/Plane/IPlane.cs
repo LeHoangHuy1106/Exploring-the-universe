@@ -9,7 +9,7 @@ interface IPlane
     void Moving();
     void SetSpeed(float speed);
     float GetSpeed();
-    void Conllider();
+    void Collision(Collision collision);
     void Limit();
     ObjectPool GetObjectPool();
     void SetObjectPool(ObjectPool objectPool);

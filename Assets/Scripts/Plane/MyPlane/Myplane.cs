@@ -21,9 +21,31 @@ public abstract class Myplane : MonoBehaviour, IPlane
 
     
 
-    public void Conllider()
+    public void Collision(Collision collision)
     {
-        
+         if ( collision.gameObject.CompareTag("PHP"))
+        {
+            collision.gameObject.SetActive ( false);
+        }
+        else if (collision.gameObject.CompareTag("PRed"))
+        {
+            collision.gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.CompareTag("PBlue"))
+        {
+            collision.gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.CompareTag("PYellow"))
+        {
+            collision.gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.CompareTag("E1"))
+        {
+            collision.gameObject.SetActive(false);
+            GameObject boom = GetObjectPool().GetObject("Boom1");
+            boom.transform.localPosition = transform.localPosition;
+            boom.SetActive(true);
+        }
     }
 
     public float GetSpeed()
@@ -108,5 +130,6 @@ public abstract class Myplane : MonoBehaviour, IPlane
         bullet.transform.position = pos;
         bullet.SetActive(true);
        
-    }    
+    }
+
 }

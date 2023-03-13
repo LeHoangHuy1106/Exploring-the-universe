@@ -6,16 +6,43 @@ public class ThrowingBullets : BulletPlayer
 {
     private int count;
     // Start is called before the first frame update
-    void Start()
+
+    private void OnEnable()
     {
+        Moving();
+        
         count = 0;
-        SetSpeed(20f);
+    }
+
+    private void Start()
+    {
+        SetSpeed(30f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Moving();
+        
         Limit();
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("E1"))
+        {
+            count++;
+            if(count <=2)
+            {
+                collision.gameObject.SetActive(false);
+
+            }
+            else
+            {
+                collision.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
+            GameObject boom = GetObjectPool().GetObject("Boom1");
+            boom.transform.localPosition = transform.localPosition;
+            boom.SetActive(true);
+        }
     }
 }

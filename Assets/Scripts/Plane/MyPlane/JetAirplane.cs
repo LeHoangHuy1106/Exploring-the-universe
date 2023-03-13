@@ -35,7 +35,7 @@ public class JetAirplane : Myplane
             if (Input.GetKeyDown(KeyCode.X))
             {
                 Vector3 temp = transform.localPosition;
-                temp.z += 1.5f;
+                temp.z += 1.9f;
                 ShootThrowingBullet(temp);
                 limit = Time.time + time;
             }
@@ -48,7 +48,13 @@ public class JetAirplane : Myplane
             }
 
         }
+        
+        
 
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Collision(collision);
     }
 
 
