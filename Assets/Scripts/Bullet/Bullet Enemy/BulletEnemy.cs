@@ -10,8 +10,6 @@ public class BulletEnemy : MonoBehaviour, IBullet
     [SerializeField]
     protected Rigidbody rb;
 
-    [SerializeField]
-    ObjectPool objectPool;
 
     public float GetSpeed()
     {
@@ -59,8 +57,5 @@ public class BulletEnemy : MonoBehaviour, IBullet
        
     }
 
-    public ObjectPool GetObjectPool()
-    {
-        return objectPool;
-    }
+
 }

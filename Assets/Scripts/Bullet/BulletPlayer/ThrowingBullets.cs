@@ -40,9 +40,11 @@ public class ThrowingBullets : BulletPlayer
                 collision.gameObject.SetActive(false);
                 gameObject.SetActive(false);
             }
-            GameObject boom = GetObjectPool().GetObject("Boom1");
+            GameObject boom = ObjectPool.Instance.GetObject("Boom1");
             boom.transform.localPosition = transform.localPosition;
             boom.SetActive(true);
         }
     }
+
+    
 }

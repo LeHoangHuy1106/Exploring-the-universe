@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class YellowBoom : MonoBehaviour
 {
-    [SerializeField]
-    ObjectPool objectPool;
+
 
     GameObject boom;
     
@@ -22,7 +21,7 @@ public class YellowBoom : MonoBehaviour
         yield return new WaitForSeconds(1f);
         other.gameObject.SetActive( false);
         Debug.Log("co va  cham");
-        boom = objectPool.GetObject("Boom1");
+        boom = ObjectPool.Instance.GetObject("Boom1");
         boom.transform.localPosition = other.transform.localPosition;
         boom.SetActive(true);
     }

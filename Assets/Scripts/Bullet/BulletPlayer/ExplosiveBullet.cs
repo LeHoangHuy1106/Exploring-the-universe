@@ -34,9 +34,10 @@ public class ExplosiveBullet : BulletPlayer
 
     private void OnDisable()
     {
-        GameObject boomYellow = GetObjectPool().GetObject("YellowBoom");
+        GameObject boomYellow = ObjectPool.Instance.GetObject("YellowBoom");
         boomYellow.transform.localPosition = transform.localPosition;
         boomYellow.SetActive(true);
     }
+
 
 }

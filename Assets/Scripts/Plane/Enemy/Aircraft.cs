@@ -22,8 +22,7 @@ public class Aircraft : Enemy
 
         rb.velocity = new Vector3(x, 0, z);
        
-
-        
+       
     }
         
     // Update is called once per frame
@@ -38,14 +37,14 @@ public class Aircraft : Enemy
     {
         Debug.Log("co");
         yield return new WaitForSeconds(Random.Range(0.5f, 3f));
-        shoot();
+        Shoot();
         StartCoroutine(startShoot());
     }
 
-    protected override void shoot()
+    public  override void Shoot()
     {
       
-        GameObject bullet = GetObjectPool().GetObject("AircraftBullet");
+        GameObject bullet =  ObjectPool.Instance.GetObject("AircraftBullet");
         Vector3 temp = transform.localPosition;
         temp.z -= 1f;
         bullet.transform.localPosition = temp ;

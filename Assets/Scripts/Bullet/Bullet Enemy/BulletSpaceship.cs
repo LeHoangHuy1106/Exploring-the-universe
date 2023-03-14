@@ -25,7 +25,7 @@ public class BulletSpaceship : BulletEnemy
 
     void Update()
     {
-        Debug.Log(rb.velocity);
+      
         Limit();
     }
 
@@ -39,13 +39,13 @@ public class BulletSpaceship : BulletEnemy
             {
                 count++;
                 other.gameObject.SetActive(false);
-                GameObject boom = GetObjectPool().GetObject("Boom1");
+                GameObject boom = ObjectPool.Instance.GetObject("Boom1");
                 boom.transform.localPosition = other.gameObject.transform.localPosition;
                 boom.SetActive(true);
             }
             else
             {
-                GameObject boom = GetObjectPool().GetObject("Boom2");
+                GameObject boom = ObjectPool.Instance.GetObject("Boom2");
                 boom.transform.localPosition = other.gameObject.transform.localPosition;
                 boom.SetActive(true);
                 other.gameObject.SetActive(false);
@@ -56,11 +56,17 @@ public class BulletSpaceship : BulletEnemy
         }
         if (other.tag == "P2")
         {
-            GameObject boom = GetObjectPool().GetObject("Boom2");
+            GameObject boom = ObjectPool.Instance.GetObject("Boom2");
             boom.transform.localPosition = other.gameObject.transform.localPosition;
             boom.SetActive(true);
             other.gameObject.SetActive(false);
             gameObject.SetActive(false);
+        }
+        if (other.tag == "Player")
+        {
+            GameObject boom = ObjectPool.Instance.GetObject("Boom2");
+            boom.transform.localPosition = other.gameObject.transform.localPosition;
+            boom.SetActive(true);
         }
 
     }

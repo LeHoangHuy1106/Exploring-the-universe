@@ -23,7 +23,12 @@ public class EconnaissancePlane :Enemy
             }
         }
     }
-        
+
+    public override void Shoot()
+    {
+     
+    }
+
 
     // Start is called before the first frame update
     void Start()

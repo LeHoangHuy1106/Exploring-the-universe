@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IPlane
+public abstract class Enemy : MonoBehaviour, IPlane
 {
-    [SerializeField]
-    ObjectPool objectPool;
+
     [SerializeField]
     Transform Enemypostion;
     [SerializeField]
@@ -17,11 +16,6 @@ public class Enemy : MonoBehaviour, IPlane
     public void Collision (Collision collision)
     {
        
-    }
-
-    public ObjectPool GetObjectPool()
-    {
-        return this.objectPool;
     }
 
     public float GetSpeed()
@@ -49,10 +43,6 @@ public class Enemy : MonoBehaviour, IPlane
         rb.velocity = (Vector3.back) * GetSpeed() * Time.deltaTime;
     }
 
-    public void SetObjectPool(ObjectPool objectPool)
-    {
-        
-    }
 
     public void SetPositon(Vector3 pos)
     {
@@ -76,5 +66,5 @@ public class Enemy : MonoBehaviour, IPlane
         return this.level;
     }
 
-    protected virtual void shoot() { }
+    public abstract void Shoot();
 }

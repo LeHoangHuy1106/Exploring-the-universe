@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPlayer : MonoBehaviour, IBullet
+public  class BulletPlayer : MonoBehaviour, IBullet
 {
     [SerializeField]
     protected Rigidbody rb;
     [SerializeField]
     private float speed;
-    [SerializeField]
-    ObjectPool objectPool;
     Vector3 postion;
+
 
     public void collide(Collision  collision, string tag)
     {
@@ -19,7 +18,7 @@ public class BulletPlayer : MonoBehaviour, IBullet
         {
             
             
-            GameObject  boom =   GetObjectPool().GetObject("Boom1");
+            GameObject  boom = ObjectPool.Instance.GetObject("Boom1");
             boom.transform.localPosition = transform.localPosition;
             boom.SetActive(true);
             gameObject.SetActive(false);
@@ -28,10 +27,6 @@ public class BulletPlayer : MonoBehaviour, IBullet
 
         }
 
-    }
-    public ObjectPool GetObjectPool()
-    {
-        return this.objectPool;
     }
     public float GetSpeed()
     {
@@ -57,10 +52,6 @@ public class BulletPlayer : MonoBehaviour, IBullet
 
     }
     public virtual void rotation()
-    {
-
-    }
-    public void setPosition(Vector3 pos)
     {
 
     }

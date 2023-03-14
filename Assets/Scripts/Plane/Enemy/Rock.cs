@@ -36,7 +36,8 @@ public class Rock : Enemy
         transform.Rotate(new Vector3(x, y, z) * Time.deltaTime * speedR);
     }
 
-
-
-
+    public override void Shoot()
+    {
+       
+    }
 }

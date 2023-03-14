@@ -21,4 +21,5 @@ public class LaserBullets : BulletPlayer
         collide(collision, "E1");
     }
 
+
 }

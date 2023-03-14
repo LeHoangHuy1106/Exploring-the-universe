@@ -11,11 +11,7 @@ interface IPlane
     float GetSpeed();
     void Collision(Collision collision);
     void Limit();
-    ObjectPool GetObjectPool();
-    void SetObjectPool(ObjectPool objectPool);
-
-
-
+    void Shoot();
 
 
 

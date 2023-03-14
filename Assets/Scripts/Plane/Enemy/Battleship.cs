@@ -38,15 +38,15 @@ public class Battleship : Enemy
         yield return new WaitForSeconds(Random.Range(0.5f, 3f));
         if (isBan)
         {
-            shoot();
+            Shoot();
         }
         StartCoroutine(startShoot());
     }
 
-    protected override void shoot()
+    public  override void Shoot()
     {
 
-        GameObject bullet = GetObjectPool().GetObject("SpaceshipBullet");
+        GameObject bullet = ObjectPool.Instance.GetObject("SpaceshipBullet");
         Vector3 temp = transform.localPosition;
      
         bullet.transform.localPosition = temp;
@@ -69,13 +69,13 @@ public class Battleship : Enemy
             {
                
                 other.gameObject.SetActive(false);
-                GameObject boom = GetObjectPool().GetObject("Boom2");
+                GameObject boom = ObjectPool.Instance.GetObject("Boom2");
                 boom.transform.localPosition = other.gameObject.transform.localPosition;
                 boom.SetActive(true);
             }
             else
             {
-                GameObject boom = GetObjectPool().GetObject("Boom2");
+                GameObject boom = ObjectPool.Instance.GetObject("Boom2");
                 boom.transform.localPosition = other.gameObject.transform.localPosition;
                 boom.SetActive(true);
                 other.gameObject.SetActive(false);
@@ -85,5 +85,6 @@ public class Battleship : Enemy
 
         }
     }
+
 
 }

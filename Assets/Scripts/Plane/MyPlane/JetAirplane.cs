@@ -7,7 +7,7 @@ public class JetAirplane : Myplane
     [SerializeField]
     private float limit;
     float time = 0.2f;
-
+   
     private void Start()
     {
         SetSpeed(10f);
@@ -21,29 +21,26 @@ public class JetAirplane : Myplane
         Shoot();
     }
 
-    protected override void Shoot()
+    public override void Shoot()
     {
         if (Time.time >= limit)
         {
            
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                ShootLaserBullet(transform.localPosition);
+
+                ChooseBullet(0);
 
                 limit = Time.time + time;
             }
             if (Input.GetKeyDown(KeyCode.X))
             {
-                Vector3 temp = transform.localPosition;
-                temp.z += 1.9f;
-                ShootThrowingBullet(temp);
+                ChooseBullet(1);
                 limit = Time.time + time;
             }
             if (Input.GetKeyDown(KeyCode.C))
             {
-                Vector3 temp = transform.localPosition;
-                temp.z += 1.5f;
-                ShootExplosiveBullet(temp);
+                ChooseBullet(2);
                 limit = Time.time + time;
             }
 
