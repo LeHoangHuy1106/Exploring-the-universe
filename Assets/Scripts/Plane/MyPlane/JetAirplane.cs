@@ -7,7 +7,8 @@ public class JetAirplane : Myplane
     [SerializeField]
     private float limit;
     float time = 0.2f;
-   
+
+
     private void Start()
     {
         SetSpeed(10f);
@@ -25,34 +26,47 @@ public class JetAirplane : Myplane
     {
         if (Time.time >= limit)
         {
-           
+
             if (Input.GetKeyDown(KeyCode.Z))
             {
 
-                ChooseBullet(0);
 
-                limit = Time.time + time;
+                OnClickShooter(0);
+
             }
             if (Input.GetKeyDown(KeyCode.X))
             {
-                ChooseBullet(1);
-                limit = Time.time + time;
+
+                OnClickShooter(1);
+
+               
+
             }
             if (Input.GetKeyDown(KeyCode.C))
             {
-                ChooseBullet(2);
-                limit = Time.time + time;
+
+                OnClickShooter(2);
+
             }
 
-        }
-        
-        
 
+
+
+        }
     }
+
+    public void OnClickShooter(int i)
+    {
+        ChooseBullet(i);
+        limit = Time.time + time;
+    }
+
+
     private void OnCollisionEnter(Collision collision)
     {
         Collision(collision);
     }
+
 
 
 }

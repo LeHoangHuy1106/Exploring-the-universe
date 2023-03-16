@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Controller : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class Controller : MonoBehaviour
     [SerializeField]
     ObjectPool objectPool;
     string[] lisEnemy = new string[] { "Rock1", "Rock2", "Rock3", "Aircraft", "Econnaissance", "Battleship" };
-    string[] listStar = new string[] { "StarRed", "StarBlue", "StarYellow" };
+    string[] listStar = new string[] { "StarRed", "StarBlue", "StarYellow", "HP" };
+
+
 
     // Start is called before the first frame update
     [SerializeField]
@@ -25,15 +28,19 @@ public class Controller : MonoBehaviour
     [SerializeField]
     private int n = 2;
     int index;
+    float ratio;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(CallEnemy());
         StartCoroutine(CallStar());
         CreateObjectPool(n);
+        ratio = (float)Screen.width / (float)Screen.height;
 
     }
-
+    private void Update()
+    {
+    }
     void CreateObjectPool(int n)
     {
 
@@ -55,22 +62,23 @@ public class Controller : MonoBehaviour
         ObjectPool.Instance.CreateListObject("StarYellow", starYellow, n);
         ObjectPool.Instance.CreateListObject("Battleship", battleship, n);
         ObjectPool.Instance.CreateListObject("SpaceshipBullet", spaceshipBullet, n);
+        ObjectPool.Instance.CreateListObject("HP", HP, n);
     }
 
     IEnumerator CallEnemy()
     {
-        yield return new WaitForSeconds(Random.Range(0.5f, 3f));
+        yield return new WaitForSeconds(Random.Range(0.5f, 2f));
         index = Random.RandomRange(0, lisEnemy.Length);
 
         GameObject enemy = objectPool.GetObject(lisEnemy[index]);
-        enemy.transform.position = new Vector3(Random.Range(-23f, 23f), 30, 1);
+        enemy.transform.position = new Vector3(Random.Range(-15 * ratio, 15 * ratio), 30, 3);
         if (index == 5 && Random.RandomRange(1, 6) <=2)
         {
-            enemy.active = true;
+            enemy.SetActive(true);
         }
         else if(index<5)
          {
-            enemy.active = true;
+            enemy.SetActive(true);
         }
 
         if (index <= 2)
@@ -88,7 +96,7 @@ public class Controller : MonoBehaviour
         index = Random.RandomRange(0, listStar.Length);
 
         GameObject enemy = objectPool.GetObject(listStar[index]);
-        enemy.transform.position = new Vector3(Random.Range(-23f, 23f), 30, 1);
+        enemy.transform.position = new Vector3(Random.Range(-15 * ratio, 15 * ratio), 30, 1);
         enemy.SetActive(true);
         StartCoroutine(CallStar());
     }

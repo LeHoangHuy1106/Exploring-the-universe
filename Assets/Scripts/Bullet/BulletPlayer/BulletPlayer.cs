@@ -17,7 +17,10 @@ public  class BulletPlayer : MonoBehaviour, IBullet
         if (collision.gameObject.CompareTag(tag))
         {
             
-            
+            if(tag== "E1")
+            {
+                ScoreCotroller.GetInstance().SetScore("point", 1);
+            }
             GameObject  boom = ObjectPool.Instance.GetObject("Boom1");
             boom.transform.localPosition = transform.localPosition;
             boom.SetActive(true);
@@ -48,7 +51,7 @@ public  class BulletPlayer : MonoBehaviour, IBullet
     }
     public virtual void Moving()
     {
-        rb.velocity = (Vector3.forward * GetSpeed());
+        rb.velocity =   (Vector3.forward) * GetSpeed();
 
     }
     public virtual void rotation()

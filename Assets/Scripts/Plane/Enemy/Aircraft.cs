@@ -29,7 +29,7 @@ public class Aircraft : Enemy
     void Update() 
     {
         Moving();
-        Limit();
+     //   Limit();
        
     }
 

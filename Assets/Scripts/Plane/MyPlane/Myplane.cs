@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public abstract class Myplane : MonoBehaviour, IPlane
 {
 
@@ -19,27 +19,36 @@ public abstract class Myplane : MonoBehaviour, IPlane
     BulletFactory bulletFactory = new BulletFactory();
     GameObject bullet;
 
+    [SerializeField]
+    private GameObject gunUpdate;
+
 
     public void Collision(Collision collision)
     {
         if (collision.gameObject.CompareTag("PHP"))
         {
+            ScoreCotroller.GetInstance().SetScore("hp", 1);
             collision.gameObject.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("PRed"))
         {
+            ScoreCotroller.GetInstance().SetScore("red", 10);
             collision.gameObject.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("PBlue"))
         {
+            ScoreCotroller.GetInstance().SetScore("blue", 5);
             collision.gameObject.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("PYellow"))
         {
+            ScoreCotroller.GetInstance().SetScore("yellow", 2);
             collision.gameObject.SetActive(false);
         }
+
         else if (collision.gameObject.CompareTag("E1"))
         {
+            ScoreCotroller.GetInstance().SetScore("hp", -1);
             collision.gameObject.SetActive(false);
             GameObject boom = ObjectPool.Instance.GetObject("Boom1");
             boom.transform.localPosition = transform.localPosition;
@@ -65,37 +74,16 @@ public abstract class Myplane : MonoBehaviour, IPlane
     private Camera mainCamera;
     public void Limit()
     {
-        float minX, maxX, minY, maxY;
-        Vector3 T = transform.localPosition;
-        T.x = Mathf.Clamp(T.x, -23.0f, 23.0f);
-        T.z = Mathf.Clamp(T.z, -27f, -3f);
+
+
+
+        float ratio = (float)Screen.width / (float)Screen.height;
+  
+        Vector3 T = transform.position;
+        T.x = Mathf.Clamp(T.x, -15 * ratio, 15 * ratio);
+       T.z = Mathf.Clamp(T.z, -27f, -3f);
         transform.localPosition = T;
         
-        /*
-        mainCamera = Camera.main;
-
-        screenHeight = mainCamera.orthographicSize * 2f;
-        screenWidth = screenHeight * mainCamera.aspect;
-
-        objectHeight = transform.localScale.z;
-        objectWidth = transform.localScale.x;
-        Vector3 viewportPosition = mainCamera.WorldToViewportPoint(transform.position);
-
-        float xMin = objectWidth / 2f;
-        float xMax = screenWidth - objectWidth / 2f;
-
-        float zMin = objectHeight / 2f;
-        float zMax = screenHeight - objectHeight / 2f;
-
-        viewportPosition.x = Mathf.Clamp(viewportPosition.x, 0.0f, 1.0f);
-        viewportPosition.y = Mathf.Clamp(viewportPosition.y, 0.0f, 1.0f);
-        viewportPosition.z = Mathf.Clamp(viewportPosition.z, 0.0f, 1.0f);
-
-        Debug.Log(viewportPosition);
-        transform.position = mainCamera.ViewportToWorldPoint(viewportPosition);
-        */
-
-
 
 
 
@@ -108,6 +96,8 @@ public abstract class Myplane : MonoBehaviour, IPlane
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
         rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -4f);
+
+        Debug.Log("kt:" + ScoreCotroller.GetInstance().GetScore("red"));
 
     }
 
@@ -135,16 +125,36 @@ public abstract class Myplane : MonoBehaviour, IPlane
         switch (index)
         {
             case 0:
-                bullet = bulletFactory.CreateBullet("LaserBullet", temp);
+                if (ScoreCotroller.GetInstance().GetScore("red") >= 1)
+                {
+                    bullet = bulletFactory.CreateBullet("LaserBullet", temp);
+                    ScoreCotroller.GetInstance().SetScore("red", -1);
+                    BulletUpGradedGun(gunUpdate.activeInHierarchy);
+                }
+
                 break;
             case 1:
-                bullet = bulletFactory.CreateBullet("ThrowingBullet", temp);
+                if (ScoreCotroller.GetInstance().GetScore("blue") >= 1)
+                {
+                    bullet = bulletFactory.CreateBullet("ThrowingBullet", temp);
+                    ScoreCotroller.GetInstance().SetScore("blue", -1);
+                }
                 break;
             case 2:
-                bullet = bulletFactory.CreateBullet("ExplosiveBullet", temp);
+                if (ScoreCotroller.GetInstance().GetScore("yellow") >= 1)
+                {
+                    ScoreCotroller.GetInstance().SetScore("yellow", -1);
+                    bullet = bulletFactory.CreateBullet("ExplosiveBullet", temp);
+                }
                 break;
             default:
-                bullet = bulletFactory.CreateBullet("LaserBullet", temp);
+                if (ScoreCotroller.GetInstance().GetScore("red") >= 1)
+                {
+                    Debug.Log("chon da vang");
+                    bullet = bulletFactory.CreateBullet("LaserBullet", temp);
+                    ScoreCotroller.GetInstance().SetScore("red", -1);
+                    BulletUpGradedGun(gunUpdate.activeInHierarchy);
+                }
                 break;
 
 
@@ -152,7 +162,28 @@ public abstract class Myplane : MonoBehaviour, IPlane
         }
 
     }
+    protected void BulletUpGradedGun(bool check)
+    {
 
+        if (check && ScoreCotroller.GetInstance().GetScore("red") >= 3)
+        {
+
+            GameObject bullet = bulletFactory.CreateBullet("LaserBullet", transform.position);
+            bullet.transform.eulerAngles = new Vector3(90f, 0f, 45f);
+            bullet.SetActive(true);
+            Debug.Log(bullet.transform.rotation.eulerAngles);
+
+
+            bullet = bulletFactory.CreateBullet("LaserBullet", transform.position);
+            bullet.transform.eulerAngles = new Vector3(90f, 0f, -45f);
+            bullet.SetActive(true);
+            Debug.Log(bullet.transform.rotation.eulerAngles);
+
+
+            ScoreCotroller.GetInstance().SetScore("red", -2);
+
+        }
+    }
 
 }
 

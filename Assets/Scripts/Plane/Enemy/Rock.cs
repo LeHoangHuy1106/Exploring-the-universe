@@ -10,12 +10,13 @@ public class Rock : Enemy
     private void OnEnable()
     {
         Moving();
-    
+        setLevel(1);
+        SetSpeed(Random.Range(700f, 2000f));
+
     }
     private void Start()
     {
-        setLevel(1);
-        SetSpeed(Random.Range(700f, 2000f));
+
      
         
     }
@@ -24,7 +25,7 @@ public class Rock : Enemy
     {
         rotate();
         
-        Limit();
+    //    Limit();
     }
     void rotate()
     {

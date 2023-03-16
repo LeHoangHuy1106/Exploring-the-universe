@@ -1,17 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+using TMPro;
 
 public class ScoreCotroller : MonoBehaviour
 {
     private static ScoreCotroller instance;
 
-    int score, hp, red, blue, yellow;
+    int score=0, hp=5, red = 10, blue = 5, yellow = 0;
+    [SerializeField]
+    private TextMeshProUGUI textRed, textBlue, textYellow, textPoint, textHP, textkMypoint, textHighestPoint;
+
 
 
 
     private void Awake()
     {
+        textRed.text = "10";
+        textBlue.text = "5";
+        textYellow.text = "0";
+        textPoint.text = "0";
+        textHP.text = "5";
         if (instance == null)
         {
             instance = this;
@@ -21,17 +32,65 @@ public class ScoreCotroller : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     public static ScoreCotroller GetInstance()
     {
         return instance;
     }
-    public int Score { get => score; set => score = value; }
-    public int Hp { get => hp; set => hp = value; }
-    public int Red { get => red; set => red = value; }
-    public int Blue { get => blue; set => blue = value; }
-    public int Yellow { get => yellow; set => yellow = value; }
 
+    public  int GetScore(string name)
+    {
+        switch (name)
+        {
+            case "point":
+                return this.score;
+            case "hp":
+                return this.hp;
+            case "red":
+                return this.red;
+            case "blue":
+                return this.blue;
+            case "yellow":
+                return this.yellow;
+            default: return 0;
+                
+        }
+        return 0;
+    }
+    public void  SetScore(string name, int i)
+    {
+        switch (name)
+        {
+            case "point":
+                this.score += i;
+                textPoint.text = this.score+ "";
+                
+                return;
+            case "hp":
+                this.hp += i;
+                textHP.text = this.hp + "";
+                return;
+            case "red":
+                this.red += i;
+                textRed.text = this.red + "";
+                Debug.Log("ktra exissts" + textRed.text);
+                return;
+            case "blue":
+                this.blue += i;
+                textBlue.text = this.blue + "";
+                return;
+            case "yellow":
+                this.yellow += i;
+                textYellow.text = this.yellow + "";
+                return;
+            default: return;
+
+        }
+        return;
+    }
+
+    //int score, hp, red, blue, yellow;
 
 }

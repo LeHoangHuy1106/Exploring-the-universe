@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 56d22970cb6ac4c4e8601433975a6f2f
+guid: ba51b5bd0a72d35408cb554979f83770
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,106 +115,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: btnSkill_0
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 314
-        width: 266
-        height: 272
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 8}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bbb58c20992fb0f4aa19f15eb7624b08
-      internalID: -111732785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: btnSkill_1
-      rect:
-        serializedVersion: 2
-        x: 321
-        y: 314
-        width: 263
-        height: 263
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c9dc6858a4dda346828484d0fbd708b
-      internalID: 401196935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: btnSkill_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 22
-        width: 264
-        height: 264
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b6268260643eab34991b086d90d6c383
-      internalID: -1351906027
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: btnSkill_3
-      rect:
-        serializedVersion: 2
-        x: 321
-        y: 22
-        width: 263
-        height: 264
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b8f85765ede00e4088c0e38e8f00c4d
-      internalID: 12235211
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b558655f471b772479cdf0119d4dcf5a
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      btnSkill_1: 401196935
-      btnSkill_0: -111732785
-      btnSkill_2: -1351906027
-      btnSkill_3: 12235211
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

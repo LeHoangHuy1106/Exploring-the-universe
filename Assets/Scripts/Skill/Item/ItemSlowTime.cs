@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class ItemSlowTime : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        
+        Time.timeScale = 0.6f;
+    }
+    private void OnDisable()
+    {
+        Time.timeScale = 1f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

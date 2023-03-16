@@ -24,6 +24,7 @@ public class YellowBoom : MonoBehaviour
         boom = ObjectPool.Instance.GetObject("Boom1");
         boom.transform.localPosition = other.transform.localPosition;
         boom.SetActive(true);
+        ScoreCotroller.GetInstance().SetScore("point", 1);
     }
 
 }

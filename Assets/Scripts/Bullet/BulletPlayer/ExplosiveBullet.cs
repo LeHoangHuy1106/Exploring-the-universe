@@ -15,7 +15,7 @@ public class ExplosiveBullet : BulletPlayer
     }
     private void OnEnable()
     {
-       
+    //    ScoreCotroller.GetInstance().SetScore("yellow", -1);
         SetSpeed(10);
     }
     // Start is called before the first frame update

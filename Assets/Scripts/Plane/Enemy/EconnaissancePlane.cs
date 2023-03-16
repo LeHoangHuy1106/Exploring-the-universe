@@ -41,7 +41,7 @@ public class EconnaissancePlane :Enemy
     // Update is called once per frame
     void Update()
     {
-        Limit();
+      //  Limit();
         if (player)
         {
             transform.LookAt(player.transform);

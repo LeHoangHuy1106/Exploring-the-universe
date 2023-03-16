@@ -9,6 +9,6 @@ public class AirCraftBullet : BulletEnemy
     void Update()
     {
         Moving();
-        Limit();
+    //    Limit();
     }
 }

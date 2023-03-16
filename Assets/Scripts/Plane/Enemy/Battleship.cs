@@ -8,6 +8,7 @@ public class Battleship : Enemy
 {
     [SerializeField]
     Transform player, ship;
+    [SerializeField]
     bool isBan;
     int count;
 

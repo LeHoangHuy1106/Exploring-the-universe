@@ -12,6 +12,7 @@ public class ThrowingBullets : BulletPlayer
         Moving();
         
         count = 0;
+     //   ScoreCotroller.GetInstance().SetScore("blue", -1);
     }
 
     private void Start()
@@ -29,9 +30,11 @@ public class ThrowingBullets : BulletPlayer
     {
         if (collision.gameObject.CompareTag("E1"))
         {
+            ScoreCotroller.GetInstance().SetScore("blue", -1);
             count++;
             if(count <=2)
             {
+                
                 collision.gameObject.SetActive(false);
 
             }
@@ -42,6 +45,7 @@ public class ThrowingBullets : BulletPlayer
             }
             GameObject boom = ObjectPool.Instance.GetObject("Boom1");
             boom.transform.localPosition = transform.localPosition;
+
             boom.SetActive(true);
         }
     }
