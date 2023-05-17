@@ -31,9 +31,10 @@ public class StoreController : MonoBehaviour
 
     void  UpdateColor ()
     {
-
-        if (item1.activeInHierarchy && ScoreCotroller.GetInstance().GetScore("red") >= 20)
+    
+        if (!item1.activeInHierarchy && ScoreCotroller.GetInstance().GetScore("red") >= 20)
         {
+            
             ChangeColor(img1, 1);
         }
         else
@@ -49,7 +50,7 @@ public class StoreController : MonoBehaviour
         {
             ChangeColor(img2, 0);
         }
-        if (!item3.activeInHierarchy && ScoreCotroller.GetInstance().GetScore("red") >= 30)
+        if (!item3.activeInHierarchy && ScoreCotroller.GetInstance().GetScore("yellow") >= 10)
         {
             ChangeColor(img3, 1);
         }
@@ -57,7 +58,7 @@ public class StoreController : MonoBehaviour
         {
             ChangeColor(img3, 0);
         }
-        if (!item4.activeInHierarchy && ScoreCotroller.GetInstance().GetScore("yellow") >= 10)
+        if (!item4.activeInHierarchy && ScoreCotroller.GetInstance().GetScore("red") >= 30)
         {
             ChangeColor(img4, 1);
         }
@@ -114,19 +115,24 @@ public class StoreController : MonoBehaviour
     {
         if (indexBuy== 0)
         {
+            item1.SetActive(true);
             ScoreCotroller.GetInstance().SetScore("red",-20);
         }
         else if (indexBuy == 1)
         {
+            item2.SetActive(true);
             ScoreCotroller.GetInstance().SetScore("blue", -10);
         }
         else if (indexBuy == 2)
         {
-            ScoreCotroller.GetInstance().SetScore("red", -30);
+            item3.SetActive(true);
+            ScoreCotroller.GetInstance().SetScore("yellow", -10);
         }
         else if (indexBuy == 3)
         {
-            ScoreCotroller.GetInstance().SetScore("yellow", -10);
+            item4.SetActive(true);
+            ScoreCotroller.GetInstance().SetScore("red", -30);
+
         }
         UpdateColor();
 

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 47649266}
   - component: {fileID: 47649265}
   m_Layer: 5
-  m_Name: Button
+  m_Name: btn playgame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 47649266}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1531017857}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: IsPlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &47649266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +504,8 @@ GameObject:
   - component: {fileID: 1531017854}
   - component: {fileID: 1531017853}
   - component: {fileID: 1531017852}
+  - component: {fileID: 1531017856}
+  - component: {fileID: 1531017857}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -584,6 +598,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &1531017856
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531017851}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e3c334c2f936fa244857b891b4fe4f64, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1531017857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531017851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400f4ff5c32049a49b571d614e1796c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelStore: {fileID: 0}
+  panelPause: {fileID: 0}
 --- !u!1 &1537692254
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +807,7 @@ GameObject:
   - component: {fileID: 1942076671}
   - component: {fileID: 1942076670}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: btn quit game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -828,7 +876,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1942076671}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1531017857}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: IsQuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1942076671
 MonoBehaviour:
   m_ObjectHideFlags: 0

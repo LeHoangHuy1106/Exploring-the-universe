@@ -6,11 +6,15 @@ public class ItemSlowTime : MonoBehaviour
 {
     private void OnEnable()
     {
-        Time.timeScale = 0.6f;
+        Time.timeScale = 0.4f;
     }
     private void OnDisable()
     {
         Time.timeScale = 1f;
+    }
+    private void Update()
+    {
+        Debug.Log(Time.time);
     }
 
 }

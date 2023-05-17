@@ -19,6 +19,7 @@ public class BulletEnemy : MonoBehaviour, IBullet
 
     public void Limit()
     {
+        /*
         Vector3 postion;
         postion = transform.localPosition;
 
@@ -30,6 +31,7 @@ public class BulletEnemy : MonoBehaviour, IBullet
         {
             gameObject.active = false;
         }
+        */
     }
 
     public void Moving()

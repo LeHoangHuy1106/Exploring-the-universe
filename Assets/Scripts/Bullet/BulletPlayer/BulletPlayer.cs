@@ -37,6 +37,7 @@ public  class BulletPlayer : MonoBehaviour, IBullet
     }
     public void Limit()
     {
+        /*
         postion = transform.localPosition;
 
         if (postion.x <= -24f || postion.x > 24f)
@@ -47,6 +48,7 @@ public  class BulletPlayer : MonoBehaviour, IBullet
         {
             gameObject.SetActive(false);
         }
+        */
 
     }
     public virtual void Moving()

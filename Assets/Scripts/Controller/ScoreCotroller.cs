@@ -12,7 +12,8 @@ public class ScoreCotroller : MonoBehaviour
     int score=0, hp=5, red = 10, blue = 5, yellow = 0;
     [SerializeField]
     private TextMeshProUGUI textRed, textBlue, textYellow, textPoint, textHP, textkMypoint, textHighestPoint;
-
+    [SerializeField]
+    GameObject panelGameOver, player;
 
 
 
@@ -26,7 +27,7 @@ public class ScoreCotroller : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+         //   DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -71,6 +72,14 @@ public class ScoreCotroller : MonoBehaviour
             case "hp":
                 this.hp += i;
                 textHP.text = this.hp + "";
+                if(this.hp<=0)
+                {
+                    GameObject boom = ObjectPool.Instance.GetObject("Boom3");
+                    boom.transform.localPosition = transform.localPosition;
+                    boom.SetActive(true);
+                    player.SetActive(false);
+                    StartCoroutine(GameOver());
+                }    
                 return;
             case "red":
                 this.red += i;
@@ -90,6 +99,17 @@ public class ScoreCotroller : MonoBehaviour
         }
         return;
     }
+    IEnumerator GameOver()
+    {
+
+        yield return new WaitForSeconds(2f);
+        panelGameOver.SetActive(true);
+        Time.timeScale = 0;
+       
+
+    }
+
+
 
     //int score, hp, red, blue, yellow;
 

@@ -7,8 +7,6 @@ public class Controller : MonoBehaviour
 {
 
 
-    [SerializeField]
-    ObjectPool objectPool;
     string[] lisEnemy = new string[] { "Rock1", "Rock2", "Rock3", "Aircraft", "Econnaissance", "Battleship" };
     string[] listStar = new string[] { "StarRed", "StarBlue", "StarYellow", "HP" };
 
@@ -37,13 +35,14 @@ public class Controller : MonoBehaviour
         CreateObjectPool(n);
         ratio = (float)Screen.width / (float)Screen.height;
 
+
     }
     private void Update()
     {
     }
     void CreateObjectPool(int n)
     {
-
+        Debug.Log("hhe");
         ObjectPool.Instance.CreateListObject("LaserBullet", laserBullet, n);
         ObjectPool.Instance.CreateListObject("ThrowingBullet", throwingBullet, n);
         ObjectPool.Instance.CreateListObject("ExplosiveBullet", explosiveBullet, n);
@@ -70,8 +69,8 @@ public class Controller : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(0.5f, 2f));
         index = Random.RandomRange(0, lisEnemy.Length);
 
-        GameObject enemy = objectPool.GetObject(lisEnemy[index]);
-        enemy.transform.position = new Vector3(Random.Range(-15 * ratio, 15 * ratio), 30, 3);
+        GameObject enemy = ObjectPool.Instance.GetObject(lisEnemy[index]);
+        enemy.transform.position = new Vector3(Random.Range(-14.5f * ratio, 14.5f * ratio), 30, 3);
         if (index == 5 && Random.RandomRange(1, 6) <=2)
         {
             enemy.SetActive(true);
@@ -95,7 +94,7 @@ public class Controller : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
         index = Random.RandomRange(0, listStar.Length);
 
-        GameObject enemy = objectPool.GetObject(listStar[index]);
+        GameObject enemy = ObjectPool.Instance.GetObject(listStar[index]);
         enemy.transform.position = new Vector3(Random.Range(-15 * ratio, 15 * ratio), 30, 1);
         enemy.SetActive(true);
         StartCoroutine(CallStar());
